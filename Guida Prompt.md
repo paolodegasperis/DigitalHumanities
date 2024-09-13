@@ -366,7 +366,7 @@ Per realizzare uno script PHP che permetta l'upload di una foto, elabori e ne es
 ```
 **Codice PHP generato:** 
 ```  
-\<?php  
+<?php  
 if ($\_SERVER\["REQUEST\_METHOD"\] \== "POST") {  
     $target\_dir \= "uploads/";  
     $target\_file \= $target\_dir . basename($\_FILES\["fileToUpload"\]\["name"\]);  
@@ -527,7 +527,9 @@ Errore: \[l’errore che viene mostrato\]
 
 **Esempio:**  
 Il codice che segue mostra un errore. Individua l’errore e scrivi la versione corretta del codice fornito.  
-Codice: \<?php  
+Codice: 
+```
+<?php  
 function moltiplica($num1, $num2) {  
     return $num1 \* $num2;  
 // Esempio di utilizzo della funzione  
@@ -536,12 +538,12 @@ echo "Il risultato della moltiplicazione è: " . $risultato; // Stampa 50
 ?\>  
 Errore: **Parse error**:   
 Unclosed '{' on line 2 in **/home/mhd-01/www.xxx.xx/htdocs/guida-prompt/molt.php** on line **9**
-
+```
 **Risposta:**  
 L'errore nel codice PHP fornito è dovuto alla mancanza della chiusura delle parentesi graffe \`{}\` nella definizione della funzione \`moltiplica\`. La parentesi graffa di apertura è presente, ma manca quella di chiusura.
 
 Ecco il codice corretto:  
-\<?php  
+```<?php  
 function moltiplica($num1, $num2) {  
     return $num1 \* $num2;  
 } // Chiusura mancante della funzione aggiunta qui
@@ -549,7 +551,8 @@ function moltiplica($num1, $num2) {
 // Esempio di utilizzo della funzione  
 $risultato \= moltiplica(5, 10);  
 echo "Il risultato della moltiplicazione è: " . $risultato; // Stampa 50  
-?\>  
+?\>
+```
 Con questa modifica, il codice ora include la parentesi graffa di chiusura per la funzione \`moltiplica\`, risolvendo l'errore di parsing.
 
 #### Analisi dei dati
