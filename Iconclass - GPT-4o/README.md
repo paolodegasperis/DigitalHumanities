@@ -36,4 +36,4 @@ Tutti gli errori e le informazioni pertinenti vengono registrati nel file `image
 Le pull requests sono benvenute. Per modifiche maggiori, aprire prima un issue per discutere cosa vorreste cambiare.
 
 ## Licenza
-Inserire qui il tipo di licenza.
+CC-BY-SA
