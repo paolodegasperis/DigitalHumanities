@@ -27,10 +27,7 @@ def summarize_and_extract_keywords(text):
         summary = parts[0].strip()
         keywords = parts[1].strip() if len(parts) > 1 else ''
 
-        # Ridurre la lunghezza del riassunto a 2000 caratteri
-        if len(summary) > 2000:
-            summary = summary[:2000] + '...'
-        
+    
         return summary, keywords
     except Exception as e:
         return f"Error processing text: {e}", ""
