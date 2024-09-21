@@ -20,7 +20,7 @@ def leggi_file_da_cartella(cartella):
 # Funzione per generare il riassunto utilizzando GPT-4
 def genera_riassunto(testo):
     messages = [
-        {"role": "system", "content": "Sei un esperto nel riassumere testi."},
+        {"role": "system", "content": "You are an expert at summarizing texts."},
         {"role": "user", "content": f"Summarize the following text into a concise, 2000-character abstract, ensuring that the main context and meaning are preserved. The summary should adopt a formal and academic style, remaining neutral without qualitative judgments or superlative expressions. The summary will be based solely on the provided TXT file, without inventing or utilizing other sources. Additionally, it should not search for external knowledge or use web searching capabilities. Upon receiving a TXT file, the GPT must create the abstract and extract 20 relevant keywords from the text, presenting them in a line separated by commas. It is mandatory for the GPT to rely exclusively on the content of the TXT file, without incorporating external knowledge or context:\n\n{testo}"}
     ]
     response = client.chat.completions.create(
