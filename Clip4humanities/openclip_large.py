@@ -1,7 +1,7 @@
 import os
 import shutil
 from pathlib import Path
-import numpy np
+import numpy as np  # Corretto qui
 import pandas as pd
 import torch
 from PIL import Image
