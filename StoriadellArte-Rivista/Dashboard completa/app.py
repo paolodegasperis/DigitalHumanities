@@ -57,7 +57,8 @@ def common_keywords_by_author():
     common_keywords = common_keywords.sort_values(['primo_autore', 'Count'], ascending=[True, False]).groupby('primo_autore').head(5)
     fig = px.bar(common_keywords, x='keyword', y='Count', color='primo_autore',
                   title='Parole Chiave più Ricorrenti per Autore', 
-                  labels={'Count': 'Occorrenze', 'keyword': 'Parole Chiave'})
+                  labels={'Count': 'Occorrenze', 'keyword': 'Parole Chiave'},
+                  height=800)  # Extended height for better usability
     return fig
 
 # Function to get most common places by author
@@ -103,53 +104,44 @@ with gr.Blocks() as app:
     gr.Markdown("# Analisi degli Articoli di Storia dell'Arte")
 
     # General Statistics
-    with gr.Row():
-        total_articles, unique_authors, language_distribution = general_statistics()
-        gr.Markdown(f"**Numero Totale di Articoli:** {total_articles}")
-        gr.Markdown(f"**Autori Unici:** {unique_authors}")
+    total_articles, unique_authors, language_distribution = general_statistics()
+    gr.Markdown(f"**Numero Totale di Articoli:** {total_articles}")
+    gr.Markdown(f"**Autori Unici:** {unique_authors}")
 
     # Keyword search
-    with gr.Row():
-        keyword_input = gr.Textbox(label="Inserisci una parola chiave")
-        search_button = gr.Button("Cerca")
+    keyword_input = gr.Textbox(label="Inserisci una parola chiave")
+    search_button = gr.Button("Cerca")
     keyword_output = gr.Dataframe()
 
     search_button.click(search_by_keyword, inputs=keyword_input, outputs=keyword_output)
 
     # Authors plot
-    with gr.Row():
-        gr.Markdown("## Top 10 Autori per Numero di Articoli")
-        authors_output = gr.Plot(plot_authors())  # Directly call the function
+    gr.Markdown("## Top 10 Autori per Numero di Articoli")
+    authors_output = gr.Plot(plot_authors())
 
     # Publication years plot
-    with gr.Row():
-        gr.Markdown("## Numero di Articoli Pubblicati per Anno")
-        years_output = gr.Plot(plot_publication_years())  # Directly call the function
+    gr.Markdown("## Numero di Articoli Pubblicati per Anno")
+    years_output = gr.Plot(plot_publication_years())
 
     # Language distribution plot
-    with gr.Row():
-        gr.Markdown("## Distribuzione degli Articoli per Lingua")
-        language_output = gr.Plot(plot_language_distribution())  # Directly call the function
+    gr.Markdown("## Distribuzione degli Articoli per Lingua")
+    language_output = gr.Plot(plot_language_distribution())
 
     # Characters and words by author
-    with gr.Row():
-        gr.Markdown("## Totale Parole e Caratteri per Autore")
-        characters_words_output = gr.Plot(plot_characters_words())  # Directly call the function
+    gr.Markdown("## Totale Parole e Caratteri per Autore")
+    characters_words_output = gr.Plot(plot_characters_words())
 
     # Common keywords by author
-    with gr.Row():
-        gr.Markdown("## Parole Chiave più Ricorrenti per Autore")
-        keywords_output = gr.Plot(common_keywords_by_author())  # Directly call the function
+    gr.Markdown("## Parole Chiave più Ricorrenti per Autore")
+    keywords_output = gr.Plot(common_keywords_by_author())
 
     # Common places by author
-    with gr.Row():
-        gr.Markdown("## Luoghi più Ricorrenti per Autore")
-        places_output = gr.Plot(common_places_by_author())  # Directly call the function
+    gr.Markdown("## Luoghi più Ricorrenti per Autore")
+    places_output = gr.Plot(common_places_by_author())
 
     # Word Cloud of Keywords using Plotly
-    with gr.Row():
-        gr.Markdown("## Word Cloud delle Parole Chiave")
-        wordcloud_output = gr.Plot(word_cloud_keywords())  # Use Plotly for word cloud
+    gr.Markdown("## Word Cloud delle Parole Chiave")
+    wordcloud_output = gr.Plot(word_cloud_keywords())
 
 # Launch the Gradio app
 app.launch()
