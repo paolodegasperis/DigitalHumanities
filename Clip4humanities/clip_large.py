@@ -64,7 +64,7 @@ def cluster_images(embeddings, similarity_threshold):
     # Perform agglomerative clustering
     clustering_model = AgglomerativeClustering(
         n_clusters=None,
-        affinity='precomputed',
+        metric='precomputed',
         linkage='average',
         distance_threshold=1 - similarity_threshold
     )
