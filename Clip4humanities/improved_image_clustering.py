@@ -77,7 +77,7 @@ def generate_embeddings_in_batches(image_paths, model, processor, device, batch_
 def cluster_images(embeddings, similarity_threshold):
     cosine_sim_matrix = cosine_similarity(embeddings)
     distance_matrix = 1 - cosine_sim_matrix
-    clustering_model = AgglomerativeClustering(n_clusters=None, affinity='precomputed', linkage='average', distance_threshold=1 - similarity_threshold)
+    clustering_model = AgglomerativeClustering(n_clusters=None, metric='precomputed', linkage='average', distance_threshold=1 - similarity_threshold)
     labels = clustering_model.fit_predict(distance_matrix)
     return labels
 
