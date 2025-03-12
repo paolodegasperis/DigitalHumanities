@@ -1,0 +1,32 @@
+# Dataset Unificato degli Artisti per Named Entity Recognition (NER)
+
+## Descrizione Generale
+Il presente dataset contiene oltre 700.000 record di nomi di artisti, ottenuti da fonti autorevoli quali **WikiData, DbPedia e ULAN**. I dati sono stati aggregati, uniformati e sottoposti a un processo di deduplicazione, al fine di garantire un elenco coerente e affidabile per applicazioni di **Named Entity Recognition (NER)**.
+
+## Fonti Utilizzate
+
+- **WikiData**: base di conoscenza strutturata contenente informazioni su persone, eventi e opere d'arte.
+- **DbPedia**: estrazione strutturata dei dati di Wikipedia, utile per ottenere informazioni dettagliate sui nomi degli artisti.
+- **ULAN (Union List of Artist Names)**: un database gestito dal Getty Research Institute, particolarmente utile per l'identificazione standardizzata degli artisti.
+
+## Struttura del Dataset
+Il dataset si compone di un’unica colonna:
+
+- **artist_name**: il nome dell’artista, standardizzato e ripulito da varianti e duplicati.
+
+## Processo di Pulizia e Unificazione
+
+1. **Raccolta e aggregazione dei dati** da WikiData, DbPedia e ULAN.
+2. **Normalizzazione dei nomi** per rimuovere variazioni minori e uniformare il formato.
+3. **Rimozione di duplicati** per garantire che ciascun nome sia unico.
+4. **Eliminazione di spazi bianchi e caratteri speciali superflui** per evitare errori nell'elaborazione automatica.
+
+## Obiettivo e Utilizzo
+L'obiettivo principale di questo dataset è fornire un elenco affidabile di artisti per migliorare la precisione nelle attività di **Named Entity Recognition (NER)**. L’ampiezza e l’accuratezza delle fonti garantiscono una maggiore copertura e precisione nell’identificazione automatica degli artisti nei testi storici e scientifici.
+
+## Formato e Accessibilità
+
+- **Formato**: CSV (Comma-Separated Values)
+- **Separatore**: Virgola (,)
+- **Codifica**: UTF-8 per garantire la compatibilità con vari sistemi di elaborazione testuale.
+
